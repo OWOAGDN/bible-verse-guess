@@ -1,7 +1,9 @@
+import Verse from "./Verse";
+
 export default function Game() {
   return (
-    <>
-      <p>Game</p>
-    </>
+    <div>
+      <Verse />
+    </div>
   );
 }

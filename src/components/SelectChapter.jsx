@@ -1,18 +1,18 @@
 import { useState } from "react";
 
-export default function SelectChapter({ getVersus }) {
-  const [chapter, setChapter] = useState(["Genesis", "Exodus", "Detueronomy"]);
-  const [selectedChapter, setSelectedChapter] = useState(chapter[0]);
-  const getChapter = (e) => setSelectedChapter(e.target.value);
-
+export default function SelectChapter({
+  chapter,
+  getChapter,
+  selectedChapter,
+}) {
   return (
     <form>
-      <select onChange={getChapter} name="chapters" id="chapters">
+      <select name="chapters" id="chapters" onChange={getChapter}>
         {chapter.map((chap) => (
           <option value={chap}>{chap}</option>
         ))}
       </select>
-      {selectedChapter}
+      {true && selectedChapter}
     </form>
   );
 }

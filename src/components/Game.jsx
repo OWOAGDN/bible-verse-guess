@@ -1,22 +1,20 @@
 import Verse from "./Verse";
-import SelectChapter from "./SelectChapter";
+import SelectBook from "./SelectBook";
+import VerseSelect from "./VerseSelect";
 import { useState } from "react";
 
 export default function Game() {
-  const [chapter, setChapter] = useState(["Genesis", "Exodus", "Detueronomy"]);
-  const [selectedChapter, setSelectedChapter] = useState();
-  const getChapter = (e) => setSelectedChapter(e.target.value);
+  const [book, setBook] = useState(["Genesis", "Exodus", "Detueronomy"]);
+  const [selectedBook, setSelectedBook] = useState(book[0]);
+  const getBook = (e) => setSelectedBook(e.target.value);
   return (
     <>
       <div>
         <Verse />
       </div>
-      <div>
-        <SelectChapter
-          chapter={chapter}
-          getChapter={getChapter}
-          selectedChapter={selectedChapter}
-        />
+      <div className="flex justify-center">
+        <SelectBook book={book} getBook={getBook} selectedBook={selectedBook} />
+        <VerseSelect />
       </div>
     </>
   );

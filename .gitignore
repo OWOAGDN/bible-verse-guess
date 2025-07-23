@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+versions ids:
+ENGWEBP Wrold english bible
+eng_asv - American Standard Version
+eng_kjv - King James Version
+BSB - berean Standard
+eng_pev - Plain English

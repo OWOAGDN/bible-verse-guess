@@ -7,7 +7,12 @@ import { useState } from "react";
 export default function Game() {
   const [book, setBook] = useState(["Genesis", "Exodus", "Detueronomy"]);
   const [selectedBook, setSelectedBook] = useState();
-  const getBook = (e) => setSelectedBook(e.target.value);
+  const [selectedChapter, setSelectedChapter] = useState();
+  const getBook = (e) => {
+    setSelectedBook(() => e.target.value);
+    setSelectedChapter();
+  };
+  const getChapter = (e) => setSelectedChapter(() => e.target.value);
   return (
     <>
       <div>
@@ -15,8 +20,10 @@ export default function Game() {
       </div>
       <div className="flex justify-center">
         <SelectBook book={book} getBook={getBook} />
-        {selectedBook && <SelectChapter selectedBook={selectedBook} />}
-        <VerseSelect />
+        {selectedBook && (
+          <SelectChapter selectedBook={selectedBook} getChapter={getChapter} />
+        )}
+        {selectedChapter && <VerseSelect />}
       </div>
     </>
   );

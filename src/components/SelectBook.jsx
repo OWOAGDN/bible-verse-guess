@@ -2,8 +2,11 @@ export default function SelectBook({ book, getBook }) {
   return (
     <form>
       <select name="books" id="books" onChange={getBook}>
-        {book.map((b) => (
-          <option value={b}>{b}</option>
+        <option>{null}</option>
+        {book.map((b, index) => (
+          <option key={index} value={b}>
+            {b}
+          </option>
         ))}
       </select>
     </form>

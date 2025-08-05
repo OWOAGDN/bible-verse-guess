@@ -1,7 +1,10 @@
-export default function Verse() {
+import { useState } from "react";
+
+export default function Verse({ translation }) {
+  const [verses, setVerses] = useState([{}]);
   return (
     <>
-      <p>Display Verse Here</p>
+      <p>{translation} Display Verse Here</p>
     </>
   );
 }

@@ -7,7 +7,7 @@ import "./App.css";
 function App() {
   return (
     <>
-      <header>
+      <header className="mb-10">
         <h1 className="text 3x1 font-bold">Guess the Verse!</h1>
       </header>
       <Game />

@@ -3,12 +3,14 @@ import SelectBook from "./SelectBook";
 import VerseSelect from "./VerseSelect";
 import SelectChapter from "./SelectChapter";
 import { useState } from "react";
+import SelectTranslation from "./SelectTranslation";
 
 export default function Game() {
   const [book, setBook] = useState(["Genesis", "Exodus", "Detueronomy"]);
   const [selectedBook, setSelectedBook] = useState();
   const [selectedChapter, setSelectedChapter] = useState();
   const [selectedVerse, setSelectedVerse] = useState();
+  const [translation, setTranslation] = useState();
   const getBook = (e) => {
     setSelectedBook(() => e.target.value);
     setSelectedChapter();
@@ -18,8 +20,9 @@ export default function Game() {
   return (
     <>
       <div>
-        <Verse />
+        <SelectTranslation setTranslation={setTranslation} />
       </div>
+      <div>{translation && <Verse translation={translation} />}</div>
       <div className="flex justify-center">
         <SelectBook book={book} getBook={getBook} />
         {selectedBook && (

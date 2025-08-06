@@ -4,6 +4,7 @@ import VerseSelect from "./VerseSelect";
 import SelectChapter from "./SelectChapter";
 import { useState } from "react";
 import SelectTranslation from "./SelectTranslation";
+import TestButton from "./TestButton";
 
 export default function Game() {
   const [book, setBook] = useState(["Genesis", "Exodus", "Detueronomy"]);
@@ -19,6 +20,9 @@ export default function Game() {
   const getSelectedVerse = (e) => setSelectedVerse(() => e.target.value);
   return (
     <>
+      <div>
+        <TestButton />
+      </div>
       <div>
         <SelectTranslation setTranslation={setTranslation} />
       </div>

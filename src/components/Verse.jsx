@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useEffect } from "react";
 
-export default function Verse({ translation }) {
-  const [verses, setVerses] = useState([{}]);
+export default function Verse({ verse }) {
   return (
     <>
-      <p>{translation} Display Verse Here</p>
+      <p>"{verse}"</p>
     </>
   );
 }

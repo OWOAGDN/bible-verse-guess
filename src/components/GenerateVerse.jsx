@@ -1,6 +1,6 @@
 import { GetData } from "../utility/getData";
 
-export default function TestButton({ selectedTrans }) {
+export default function GenerateVerse({ selectedTrans, setRandomVerse }) {
   const translation = selectedTrans;
   const handleClick = async (e) => {
     e.preventDefault();
@@ -32,6 +32,7 @@ export default function TestButton({ selectedTrans }) {
     const randomVerse = verses[Math.floor(Math.random() * verses.length)];
     console.log(randomVerse.content);
     console.log(book, chapter, randomVerse.number);
+    setRandomVerse(() => randomVerse.content);
   };
   return <button onClick={handleClick}>Press</button>;
 }

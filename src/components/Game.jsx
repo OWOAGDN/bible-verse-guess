@@ -4,11 +4,12 @@ import VerseSelect from "./VerseSelect";
 import SelectChapter from "./SelectChapter";
 import { useState } from "react";
 import SelectTranslation from "./SelectTranslation";
-import TestButton from "./TestButton";
+import GenerateVerse from "./GenerateVerse";
 
 export default function Game() {
   const [book, setBook] = useState(["Genesis", "Exodus", "Detueronomy"]);
   const [selectedBook, setSelectedBook] = useState();
+  const [randomVerse, setRandomVerse] = useState();
   const [selectedChapter, setSelectedChapter] = useState();
   const [selectedVerse, setSelectedVerse] = useState();
   const [translation, setTranslation] = useState();
@@ -21,14 +22,19 @@ export default function Game() {
   return (
     <>
       <div>
-        <TestButton selectedTrans={translation} />
-      </div>
-      <div>
         <SelectTranslation setTranslation={setTranslation} />
       </div>
-      <div>{translation && <Verse translation={translation} />}</div>
+      <div>
+        {translation && (
+          <GenerateVerse
+            setRandomVerse={setRandomVerse}
+            selectedTrans={translation}
+          />
+        )}
+      </div>
+      <div>{randomVerse && <Verse verse={randomVerse} />}</div>
       <div className="flex justify-center">
-        <SelectBook book={book} getBook={getBook} />
+        {randomVerse && <SelectBook book={book} getBook={getBook} />}
         {selectedBook && (
           <SelectChapter selectedBook={selectedBook} getChapter={getChapter} />
         )}

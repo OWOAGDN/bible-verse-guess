@@ -1,9 +1,9 @@
 import { GetData } from "../utility/getData";
 
-export default function TestButton() {
+export default function TestButton({ selectedTrans }) {
+  const translation = selectedTrans;
   const handleClick = async (e) => {
     e.preventDefault();
-    const translation = "BSB";
     const getRandomBook = async () => {
       const response = await fetch(
         `https://bible.helloao.org/api/${translation}/books.json`

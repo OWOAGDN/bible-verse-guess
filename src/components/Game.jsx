@@ -21,7 +21,7 @@ export default function Game() {
   return (
     <>
       <div>
-        <TestButton />
+        <TestButton selectedTrans={translation} />
       </div>
       <div>
         <SelectTranslation setTranslation={setTranslation} />

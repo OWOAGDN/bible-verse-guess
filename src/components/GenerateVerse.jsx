@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { GetData } from "../utility/getData";
 
 export default function GenerateVerse({ selectedTrans, setRandomVerse }) {
@@ -34,5 +35,5 @@ export default function GenerateVerse({ selectedTrans, setRandomVerse }) {
     console.log(book, chapter, randomVerse.number);
     setRandomVerse(() => randomVerse.content);
   };
-  return <button onClick={handleClick}>Press</button>;
+  return <button onClick={handleClick}>Generate a Verse</button>;
 }

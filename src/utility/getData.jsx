@@ -35,4 +35,15 @@ export const GetData = {
       chapter: numArray[Math.floor(Math.random() * numArray.length)],
     };
   },
+  getVerses: async (translation, book, chapter) => {
+    const selectedChapter = await GetData.getChapters(
+      translation,
+      book,
+      chapter
+    );
+    const verses = await selectedChapter.chapter.content.filter(
+      (f) => f.type === "verse"
+    );
+    return verses;
+  },
 };

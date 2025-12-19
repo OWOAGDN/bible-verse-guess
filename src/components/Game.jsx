@@ -7,6 +7,7 @@ import SelectTranslation from "./SelectTranslation";
 import GenerateVerse from "./GenerateVerse";
 
 export default function Game() {
+  const [books, setBooks] = useState([]);
   const [selectedBook, setSelectedBook] = useState();
   const [randomVerse, setRandomVerse] = useState();
   const [selectedChapter, setSelectedChapter] = useState();
@@ -33,10 +34,19 @@ export default function Game() {
       <div>{randomVerse && <Verse verse={randomVerse} />}</div>
       <div className="flex justify-center">
         {randomVerse && (
-          <SelectBook getBook={getBook} translation={translation} />
+          <SelectBook
+            books={books}
+            setBooks={setBooks}
+            getBook={getBook}
+            translation={translation}
+          />
         )}
         {selectedBook && (
-          <SelectChapter selectedBook={selectedBook} getChapter={getChapter} />
+          <SelectChapter
+            books={books}
+            selectedBook={selectedBook}
+            getChapter={getChapter}
+          />
         )}
         {selectedChapter && (
           <VerseSelect

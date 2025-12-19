@@ -1,28 +1,11 @@
 import { useState } from "react";
+import { HelperFunctions } from "../utility/helperFunctions";
 
-export default function SelectChapter({ selectedBook, getChapter }) {
-  const [chapter, setChapter] = useState([
-    {
-      name: "Genesis",
-      numberOfChapters: 50,
-    },
-    {
-      name: "Exodus",
-      numberOfChapters: 6,
-    },
-    {
-      name: "Detueronomy",
-      numberOfChapters: 45,
-    },
-  ]);
-
-  const getNumberOfChapters = (selectedBook) => {
-    let numArray = [];
-    const [book] = chapter.filter((c) => c.name === selectedBook);
+export default function SelectChapter({ books, selectedBook, getChapter }) {
+  const getNumberOfChapters = () => {
+    const [book] = books.filter((b) => b.name === selectedBook);
     const chapterNumbers = book.numberOfChapters;
-    for (let i = 1; i <= chapterNumbers; i++) {
-      numArray.push(i);
-    }
+    const numArray = HelperFunctions.numberToArray(chapterNumbers);
     return numArray;
   };
 
@@ -32,9 +15,9 @@ export default function SelectChapter({ selectedBook, getChapter }) {
     <>
       <form>
         <select onChange={getChapter}>
-          {chapters.map((c) => (
-            <option key={c} value={c}>
-              {c}
+          {chapters.map((chapter) => (
+            <option key={chapter} value={chapter}>
+              {chapter}
             </option>
           ))}
         </select>

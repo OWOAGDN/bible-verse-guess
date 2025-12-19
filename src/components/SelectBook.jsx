@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { GetData } from "../utility/getData";
 
-export default function SelectBook({ getBook, translation }) {
-  const [books, setBooks] = useState([]);
+export default function SelectBook({ books, setBooks, getBook, translation }) {
   useEffect(() => {
     GetData.getBooks(translation).then((data) => {
       console.log(data.books);

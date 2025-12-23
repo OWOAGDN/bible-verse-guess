@@ -8,10 +8,7 @@ export default function GenerateVerse({ selectedTrans, setRandomVerse }) {
     e.preventDefault();
     const randomBook = await GetData.getRandomBook(translation);
     const { book, chapter } = randomBook;
-    const randomChapter = await GetData.getChapters(translation, book, chapter);
-    const verses = randomChapter.chapter.content.filter(
-      (f) => f.type === "verse"
-    );
+    const verses = await GetData.getVerses(translation, book, chapter);
     const randomVerse = verses[Math.floor(Math.random() * verses.length)];
     const cleanedVerse = HelperFunctions.cleanVerse(randomVerse.content);
     console.log(randomVerse.content);

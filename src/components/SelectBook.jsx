@@ -12,8 +12,8 @@ export default function SelectBook({ books, setBooks, getBook, translation }) {
     <form>
       <select name="books" id="books" onChange={getBook}>
         <option>{null}</option>
-        {books.map((book, index) => (
-          <option key={index} value={book.name}>
+        {books.map((book) => (
+          <option key={book.id} value={book.id}>
             {book.name}
           </option>
         ))}

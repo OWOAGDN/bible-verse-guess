@@ -52,6 +52,8 @@ export default function Game() {
           <VerseSelect
             getSelectedVerse={getSelectedVerse}
             selectedChapter={selectedChapter}
+            translation={translation}
+            selectedBook={selectedBook}
           />
         )}
       </div>

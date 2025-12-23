@@ -1,13 +1,19 @@
 import { useState, useEffect } from "react";
 import { GetData } from "../utility/getData";
 
-export default function SelectBook({ books, setBooks, getBook, translation }) {
+export default function SelectBook({
+  books,
+  setBooks,
+  getBook,
+  translation,
+  randomVerse,
+}) {
   useEffect(() => {
     GetData.getBooks(translation).then((data) => {
       console.log(data.books);
-      setBooks(() => data.books);
+      setBooks(data.books);
     });
-  }, [translation]);
+  }, [randomVerse]);
   return (
     <form>
       <select name="books" id="books" onChange={getBook}>

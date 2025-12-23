@@ -31,5 +31,7 @@ export default function VerseSelect({
         </form>
       </>
     );
+  } else {
+    return <p>Getting verses...</p>;
   }
 }

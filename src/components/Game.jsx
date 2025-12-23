@@ -15,6 +15,7 @@ export default function Game() {
   const [translation, setTranslation] = useState();
   const getBook = (e) => {
     setSelectedBook(() => e.target.value);
+    setSelectedChapter(() => null);
   };
   const getChapter = (e) => setSelectedChapter(() => e.target.value);
   const getSelectedVerse = (e) => setSelectedVerse(() => e.target.value);
@@ -28,6 +29,7 @@ export default function Game() {
           <GenerateVerse
             setRandomVerse={setRandomVerse}
             selectedTrans={translation}
+            setBooks={setBooks}
           />
         )}
       </div>
@@ -39,6 +41,7 @@ export default function Game() {
             setBooks={setBooks}
             getBook={getBook}
             translation={translation}
+            randomVerse={randomVerse}
           />
         )}
         {selectedBook && (
